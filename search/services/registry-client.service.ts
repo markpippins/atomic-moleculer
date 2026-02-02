@@ -122,9 +122,9 @@ export default class RegistryClientService extends Service {
         timeout: 5000
       });
 
-      this.logger.info(`Successfully registered with Host Server: ${response.data.message || "OK"}`);
+      this.logger.info(`Successfully registered with Service Registry: ${response.data.message || "OK"}`);
     } catch (error: any) {
-      this.logger.warn(`Failed to register with Host Server: ${error.message}`);
+      this.logger.warn(`Failed to register with Service Registry: ${error.message}`);
       // Don't throw - service should continue running even if registration fails
     }
   }

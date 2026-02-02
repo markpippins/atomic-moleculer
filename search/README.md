@@ -9,7 +9,7 @@ Angular Client -> Broker Gateway -> Moleculer Search Service
                        ↑                    ↓
                        |              (registers with)
                        |                    ↓
-                  Host Server ←─────────────┘
+                  Service Registry ←─────────────┘
                 (Service Registry)
                        
 Moleculer Services:
@@ -39,7 +39,7 @@ HTTP gateway service using moleculer-web
 - **Endpoint**: `GET /api/health` - Health check
 
 ### registry-client
-Handles registration with Host Server
+Handles registration with Service Registry
 - Registers on startup via REST API
 - Periodic heartbeat re-registration (every 30s)
 - Automatic retry on failure
@@ -71,15 +71,15 @@ npm start
 
 ## Environment Variables
 
-- `SERVICE_REGISTRY_URL` - Host Server registry endpoint (default: http://localhost:8085/api/registry)
+- `SERVICE_REGISTRY_URL` - Service Registry registry endpoint (default: http://localhost:8085/api/registry)
 - `GOOGLE_API_KEY` - Google Custom Search API key
 - `GOOGLE_SEARCH_ENGINE_ID` - Google Custom Search Engine ID
 - `SERVICE_PORT` - Port for HTTP API (default: 4050)
 - `SERVICE_HOST` - Host for service registration (default: localhost)
 
-## Integration with Host Server
+## Integration with Service Registry
 
-The service automatically registers with the Host Server on startup via REST API:
+The service automatically registers with the Service Registry on startup via REST API:
 
 ```json
 {
@@ -97,7 +97,7 @@ The service automatically registers with the Host Server on startup via REST API
 }
 ```
 
-The registration is persisted in the Host Server's H2 database. The Broker Gateway queries the Host Server to route requests to registered services.
+The registration is persisted in the Service Registry's H2 database. The Broker Gateway queries the Service Registry to route requests to registered services.
 
 ## Adding New Search Providers
 
