@@ -4633,3 +4633,4 @@ search/node_modules/.bin/tsc.bunx
 search/node_modules/.bin/tsc.exe
 search/node_modules/.bin/tsserver.bunx
 search/node_modules/.bin/tsserver.exe
+search/log/run.log
